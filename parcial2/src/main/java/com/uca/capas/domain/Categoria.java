@@ -25,10 +25,12 @@ public class Categoria {
 	@Size(max = 50, message = "El campo sobrepasa la cantidad de 50 caracteres.")
 	@NotEmpty(message ="El campo no puede estar vacio.")
 	@Column(name = "s_categoria")
-	private String titulo;
+	private String sCategoria;
 	
+	/*
 	@OneToMany(mappedBy = "cat_categoria", fetch = FetchType.EAGER)
 	private List<Libro> libros;
+	*/
 
 	public Categoria() {
 		super();
@@ -42,20 +44,13 @@ public class Categoria {
 		this.codigoCategoria = codigoCategoria;
 	}
 
-	public String getTitulo() {
-		return titulo;
+	public String getsCategoria() {
+		return sCategoria;
 	}
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+	public void setsCategoria(String sCategoria) {
+		this.sCategoria = sCategoria;
 	}
 
-	public List<Libro> getLibros() {
-		return libros;
-	}
-
-	public void setLibros(List<Libro> libros) {
-		this.libros = libros;
-	}
 	
 }

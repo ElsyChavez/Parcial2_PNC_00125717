@@ -9,5 +9,54 @@
 
 	<h1>Ingresar libro</h1>
 	
+	<form th:action="@{/ingresarLibro}" th:object="${libro}" method="post">
+	
+		<label>Titulo: </label>
+		<input type="text"  th:field="*{titulo}"><br>
+		<span th:errors = "*{titulo}" style = "color: #E81505;"></span>
+	
+		<br><br>
+		
+		<label>Autor: </label>
+		<input type="text" th:field="*{autor}"><br>
+		<span th:errors = "*{autor}" style = "color: #E81505;"></span>
+
+		<br><br>
+		
+		<label>Categoria: </label> <br>
+		<select th:field = "*{categoria.codigoCategoria}">
+			<option th:each = "categoria, row:${categorias}" 
+			th:value = "${categoria.codigoCategoria}" th:text = "${categoria.sCategoria}">
+			</option>
+		</select>
+		
+		<br><br>
+		
+		<label>Estado: </label> <br>
+		<label>Disponible</label>
+		<input type = "radio" th:field = "*{estado}" th:value = "${true}">
+		<label>No disponible</label>
+		<input type = "radio" th:field = "*{estado}" th:value = "${false}">
+		
+		<br><br>
+		
+		<label>ISBN: </label>
+		<input type="text" th:field="*{isbn}"><br>
+		<span th:errors = "*{isbn}" style = "color: #E81505;"></span>
+	
+		<br><br>
+
+		<input type="submit" value="Guardar">
+			
+	</form>
+	
+	<br>
+	
+	<form th:action="@{/index}">
+	
+    	<input type="submit" value="Regresar">
+    	
+	</form>
+	
 </body>
 </html>

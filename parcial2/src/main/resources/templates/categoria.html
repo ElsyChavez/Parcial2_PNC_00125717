@@ -9,5 +9,25 @@
 
 	<h1>Ingresar categoria</h1>
 	
+	<form th:action="@{/ingresarCategoria}" th:object="${categoria}" method="post">
+	
+		<label>Categoria: </label>
+		<input type="text"  th:field="*{sCategoria}"><br>
+		<span th:errors = "*{sCategoria}" style = "color: #E81505;"></span>
+	
+		<br><br>
+
+		<input type="submit" value="Guardar categoria">
+			
+	</form>
+	
+	<br>
+	
+	<form th:action="@{/index}">
+	
+    	<input type="submit" value="Regresar">
+    	
+	</form>
+	
 </body>
 </html>

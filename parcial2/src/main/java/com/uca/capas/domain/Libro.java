@@ -1,6 +1,7 @@
 package com.uca.capas.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import javax.persistence.Column;
@@ -40,10 +41,10 @@ public class Libro {
 	private Categoria categoria;
 	
 	@Column(name = "f_ingreso")
-	private LocalDate fechaIngreso;
+	private LocalDateTime fechaIngreso;
 	
 	@Column(name = "b_estado")
-	private Boolean Estado;
+	private Boolean estado;
 
 	@Pattern(regexp = "^[0-9]{10}$", message = "El ISBN debe tener exactamente 10 digitos.")
 	@NotEmpty(message ="El campo no puede estar vacio.")
@@ -54,67 +55,97 @@ public class Libro {
 		super();
 	}
 
+	
+
 	public Integer getCodigoLibro() {
 		return codigoLibro;
 	}
+
+
 
 	public void setCodigoLibro(Integer codigoLibro) {
 		this.codigoLibro = codigoLibro;
 	}
 
+
+
 	public String getTitulo() {
 		return titulo;
 	}
+
+
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
+
+
 	public String getAutor() {
 		return autor;
 	}
+
+
 
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
 
+
+
 	public Categoria getCategoria() {
 		return categoria;
 	}
+
+
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
-	public LocalDate getFechaIngreso() {
+
+
+	public LocalDateTime getFechaIngreso() {
 		return fechaIngreso;
 	}
 
-	public void setFechaIngreso(LocalDate fechaIngreso) {
+
+
+	public void setFechaIngreso(LocalDateTime fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
 
+
+
 	public Boolean getEstado() {
-		return Estado;
+		return estado;
 	}
 
+
+
 	public void setEstado(Boolean estado) {
-		Estado = estado;
+		this.estado = estado;
 	}
+
+
 
 	public String getIsbn() {
 		return isbn;
 	}
 
+
+
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
-	
+
+
+
 	//Funciones delegate
 	public String getEstadoDelegate() {
-		if(this.Estado == null) return "";
+		if(this.estado == null) return "";
 		else {
-			return Estado == true ?"Disponible":"No disponible";
+			return estado == true ?"Disponible":"No disponible";
 		}
 	}
 	

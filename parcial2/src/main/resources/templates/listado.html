@@ -11,5 +11,35 @@
 	
 	<br>
 	
+		<table>
+	
+		<thead>
+			<th>Titulo</th>
+			<th>Autor</th>
+			<th>ISBN</th>
+			<th>Categoria</th>
+			<th>Fecha</th>
+		</thead>
+		
+		<th:block th:each = "libro, row: ${libros}">
+			<tr>
+				<th th:text = "${libro.titulo}"/>
+				<th th:text = "${libro.autor}"/>
+				<th th:text = "${libro.isbn}"/>
+				<th th:text = "${libro.categoria.sCategoria}"/>
+			    <th th:text = "${libro.fechaIngreso}"/>
+			</tr>
+		</th:block>
+		
+	</table>
+	
+	<br><br>
+	
+	<form th:action="@{/index}">
+	
+    	<input type="submit" value="Regresar">
+    	
+	</form>
+	
 </body>
 </html>

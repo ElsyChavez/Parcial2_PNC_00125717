@@ -1,6 +1,7 @@
 package com.uca.capas.service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class LibroServiceImpl implements LibroService{
 	@Override
 	@Transactional
 	public void insert(Libro libro) throws DataAccessException {
-		LocalDate fechaActual = LocalDate.now();
+		LocalDateTime fechaActual = LocalDateTime.now();
 		libro.setFechaIngreso(fechaActual);
 		libroDAO.insert(libro);
 	}
